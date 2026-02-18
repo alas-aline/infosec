@@ -34,7 +34,7 @@ date-format: "2026-02-18" # Example: 2025-09-06
 :::
 ::: {.column width="30%"}
 
-![](./image/kulyabov.jpg)
+![](./image/me.jpg)
 
 :::
 ::::::::::::::

@@ -76,9 +76,7 @@ date-format: "YYYY-MM-DD" # Example: 2025-09-06
 
 ## Базовые цели защиты информации (CIA Triad)
 
-<div align="center">
-  <img src="image/83a0732c2407bb16da3d3febc924e84f.png" width="400">
-</div>
+![](./image/83a0732c2407bb16da3d3febc924e84f.png){width="400" fig-align="center"}
 
 ## Задачи системы защиты информации
 
@@ -103,9 +101,7 @@ date-format: "YYYY-MM-DD" # Example: 2025-09-06
 
 ## Конфиденциальная информация: виды
 
-<div align="center">
-  <img src="image/wzym6p2fkflph756rhk2eukakt6jc3sachvcdoaizecfr3dnitcq_3_0.png" width="400">
-</div>
+![](./image/wzym6p2fkflph756rhk2eukakt6jc3sachvcdoaizecfr3dnitcq_3_0.png){width="400" fig-align="center"}
 
 # Система защиты конфиденциальной информации (СЗКИ)
 
@@ -118,9 +114,7 @@ date-format: "YYYY-MM-DD" # Example: 2025-09-06
 
 ## Этапы:
 
-<div align="center">
-  <img src="image/The-PDCA-Cycle-01-2.png" width="400">
-</div>
+![](./image/The-PDCA-Cycle-01-2.png){width="400" fig-align="center"}
 
 ## Организационные меры защиты
 
@@ -154,6 +148,4 @@ date-format: "YYYY-MM-DD" # Example: 2025-09-06
 
 # Выводы
 
-<div align="center">
-  <img src="image/law-judgement-justice-equality-concept.jpg" width="400">
-</div>
+![](./image/law-judgement-justice-equality-concept.jpg){width="400" fig-align="center"}

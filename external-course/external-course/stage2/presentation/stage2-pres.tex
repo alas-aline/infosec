@@ -1,0 +1,468 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+  aspectratio=169,
+  russian,
+]{beamer}
+\newif\ifbibliography
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolshorizontal
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{DejaVu Serif}
+  \setsansfont[]{DejaVu Sans}
+  \setmonofont[]{DejaVu Sans Mono}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,provide=*]{babel}
+\else
+\usepackage[bidi=default,provide=*]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[]{DejaVu Serif}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+\usepackage[]{csquotes}
+
+\IfFileExists{plex-otf.sty}{
+  %% Full TeXlive
+   \usepackage[%
+     % math,
+     RM={Scale=0.94},SS={Scale=0.94},SScon={Scale=0.94},TT={Scale=MatchLowercase,FakeStretch=0.9},DefaultFeatures={Ligatures=Common}
+   ]{plex-otf}
+}{
+  %% TinyTeX
+  \usepackage{libertine}
+}
+
+%%% Load theme
+% https://deic.uab.cat/~iblanes/beamer_gallery/
+\IfFileExists{beamerthemegotham.sty}{
+  %% Full TeXlive
+  \usetheme{gotham}
+  \gothamset{
+    numbering=totalpagenumber,
+    parttocframe default=off,
+    sectiontocframe default=off,
+    subsectiontocframe default=off,
+  }
+}{
+  %% TinyTeX
+  \usetheme{Madrid}
+}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Содержание}
+\else
+  \newcommand\contentsname{Содержание}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Список иллюстраций}
+\else
+  \newcommand\listfigurename{Список иллюстраций}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Список таблиц}
+\else
+  \newcommand\listtablename{Список таблиц}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Рисунок}
+\else
+  \newcommand\figurename{Рисунок}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Таблица}
+\else
+  \newcommand\tablename{Таблица}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Список}
+\newcommand*\listoflistings{\listof{codelisting}{Листинги}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Внешний курс №2},
+  pdfauthor={Трусова Алина Александровна},
+  pdflang={ru-RU},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Внешний курс №2}
+\subtitle{Защита ПК (телефона)}
+\author{Трусова Алина Александровна}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\renewcommand*\contentsname{Содержание}
+\begin{frame}[allowframebreaks]
+  \frametitle{Содержание}
+  \setcounter{tocdepth}{2}
+  \tableofcontents
+\end{frame}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\section{1. Цель
+работы}\label{ux446ux435ux43bux44c-ux440ux430ux431ux43eux442ux44b}
+
+\begin{frame}{1. Цель работы}
+Пройти второй блок курса \enquote{Основы кибербезопасности}
+\end{frame}
+
+\section{2. Выполнение блока 2: Защита
+ПК/Телефона}\label{ux432ux44bux43fux43eux43bux43dux435ux43dux438ux435-ux431ux43bux43eux43aux430-2-ux437ux430ux449ux438ux442ux430-ux43fux43aux442ux435ux43bux435ux444ux43eux43dux430}
+
+\begin{frame}{2.1 Шифрование диска}
+\phantomsection\label{ux448ux438ux444ux440ux43eux432ux430ux43dux438ux435-ux434ux438ux441ux43aux430}
+\end{frame}
+
+\begin{frame}
+Шифрование диска --- технология защиты информации, переводящая данные на
+диске в нечитаемый код, который нелегальный пользователь не сможет легко
+расшифровать. Соответственно, можно (рис. {[}-@fig:001{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/1.PNG}
+
+}
+
+\caption{Вопрос 3.1.1}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Шифрование диска основано на симметричном шифровании (рис.
+{[}-@fig:002{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/2.PNG}
+
+}
+
+\caption{Вопрос 3.1.2}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Отмечены программы, с помощью которых можно зашифровать жетский диск
+(рис. {[}-@fig:003{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/3.PNG}
+
+}
+
+\caption{Вопрос 3.1.3}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.2 Пароли}
+\phantomsection\label{ux43fux430ux440ux43eux43bux438}
+\end{frame}
+
+\begin{frame}
+Стойкий пароль - тот, который тяжлее подобрать, он должен быть со спец.
+символами и длинный (рис. {[}-@fig:004{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/4.PNG}
+
+}
+
+\caption{Вопрос 3.2.1}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Все варианты, кроме менеджера паролей, совершенно не надежные (рис.
+{[}-@fig:005{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/5.PNG}
+
+}
+
+\caption{Вопрос 3.2.2}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Капча нужна для проверки на то, что за экраном \enquote{не робот}(рис.
+{[}-@fig:006{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/6.PNG}
+
+}
+
+\caption{Вопрос 3.2.3}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Опасно хранить пароли в открытом виде, поэтому хранят их хэши (рис.
+{[}-@fig:007{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/7.PNG}
+
+}
+
+\caption{Вопрос 3.2.4}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Соль не поможет (рис. {[}-@fig:008{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/8.PNG}
+
+}
+
+\caption{Вопрос 3.2.5}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Все приведенные меры защищают от утечек данных (рис. {[}-@fig:009{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/9.PNG}
+
+}
+
+\caption{НВопрос 3.2.6}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.3 Фишинг}
+\phantomsection\label{ux444ux438ux448ux438ux43dux433}
+\end{frame}
+
+\begin{frame}
+Фишинговые ссылки очень похожи на ссылки известных сервисов, но с
+некоторыми отличиями (рис. {[}-@fig:010{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/10.PNG}
+
+}
+
+\caption{Вопрос 3.3.1}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Да, может, например, если пользователя со знакомым адресом взломали
+(рис. {[}-@fig:011{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/11.PNG}
+
+}
+
+\caption{Вопрос 3.3.2}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.4 Вирусы. Примеры}
+\phantomsection\label{ux432ux438ux440ux443ux441ux44b.-ux43fux440ux438ux43cux435ux440ux44b}
+\end{frame}
+
+\begin{frame}
+Ответ дан в соответствии с определением (рис. {[}-@fig:012{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/12.PNG}
+
+}
+
+\caption{Вопрос 3.4.1}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Троян маскируется под обычную программу (рис. {[}-@fig:013{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/13.PNG}
+
+}
+
+\caption{Вопрос 3.4.2}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.5 Безопасность мессенджеров}
+\phantomsection\label{ux431ux435ux437ux43eux43fux430ux441ux43dux43eux441ux442ux44c-ux43cux435ux441ux441ux435ux43dux434ux436ux435ux440ux43eux432}
+\end{frame}
+
+\begin{frame}
+При установке первого сообщения отправителем формируется ключ шифрования
+(рис. {[}-@fig:014{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/14.PNG}
+
+}
+
+\caption{Вопрос 3.5.1}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}
+Суть сквозного шифрования состоит в том, что сообщения передаются по
+узлам связи в зашифрованном виде (рис. {[}-@fig:015{]}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{../report/image/15.PNG}
+
+}
+
+\caption{Вопрос 3.5.2}
+
+\end{figure}%
+\end{frame}
+
+\section{3. Выводы}\label{ux432ux44bux432ux43eux434ux44b}
+
+\begin{frame}{3. Выводы}
+Был пройден второй блок курса \enquote{Основы кибербезопасности},
+изучены правила хранения паролей и основная информация о вирусах.
+\end{frame}
+
+
+
+
+\end{document}

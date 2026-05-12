@@ -16,9 +16,9 @@ crossref:
 format:
   ### Pdf output format
   beamer:
-    mainfont: DejaVu Serif
-    sansfont: DejaVu Sans
-    monofont: DejaVu Sans Mono
+ #   mainfont: DejaVu Serif
+ #   sansfont: DejaVu Sans
+ #   monofont: DejaVu Sans Mono
     pdf-engine: xelatex
     toc: true
     toc-title: Содержание

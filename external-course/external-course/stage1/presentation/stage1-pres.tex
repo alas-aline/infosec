@@ -57,6 +57,7 @@
 
 
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 \usepackage{caption}
 % Make caption package work with longtable
@@ -82,17 +83,17 @@
 
 
 \ifLuaTeX
-\usepackage[bidi=basic,provide=*]{babel}
+\usepackage[bidi=basic,shorthands=off,provide=*]{babel}
 \else
-\usepackage[bidi=default,provide=*]{babel}
+\usepackage[bidi=default,shorthands=off,provide=*]{babel}
 \fi
 \ifPDFTeX
 \else
 \babelfont{rm}[]{DejaVu Serif}
 \fi
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
 
 
 \setlength{\emergencystretch}{3em} % prevent overfull lines
@@ -191,8 +192,8 @@
   pdfcreator={LaTeX via pandoc}}
 
 
-\title{Внешний курс №1}
-\subtitle{Безопасность в сети}
+\title{\texorpdfstring{Внешний курс №1}{Внешний курс №1}}
+\subtitle{\texorpdfstring{Безопасность в сети}{Безопасность в сети}}
 \author{Трусова Алина Александровна}
 \date{}
 
@@ -221,7 +222,7 @@
 Кибербезопасности}}{2. Выполнение заданий блока ``Основы Кибербезопасности''}}\label{ux432ux44bux43fux43eux43bux43dux435ux43dux438ux435-ux437ux430ux434ux430ux43dux438ux439-ux431ux43bux43eux43aux430-ux43eux441ux43dux43eux432ux44b-ux43aux438ux431ux435ux440ux431ux435ux437ux43eux43fux430ux441ux43dux43eux441ux442ux438}
 
 \begin{frame}{2.1 Как работает интернет: базовые сетевые протоколы}
-\phantomsection\label{ux43aux430ux43a-ux440ux430ux431ux43eux442ux430ux435ux442-ux438ux43dux442ux435ux440ux43dux435ux442-ux431ux430ux437ux43eux432ux44bux435-ux441ux435ux442ux435ux432ux44bux435-ux43fux440ux43eux442ux43eux43aux43eux43bux44b}
+\protect\phantomsection\label{ux43aux430ux43a-ux440ux430ux431ux43eux442ux430ux435ux442-ux438ux43dux442ux435ux440ux43dux435ux442-ux431ux430ux437ux43eux432ux44bux435-ux441ux435ux442ux435ux432ux44bux435-ux43fux440ux43eux442ux43eux43aux43eux43bux44b}
 \end{frame}
 
 \begin{frame}
@@ -378,7 +379,7 @@ TLS определяется и клиентом, и сервером, чтоб�
 \end{frame}
 
 \begin{frame}{2.2 Персонализация сети}
-\phantomsection\label{ux43fux435ux440ux441ux43eux43dux430ux43bux438ux437ux430ux446ux438ux44f-ux441ux435ux442ux438}
+\protect\phantomsection\label{ux43fux435ux440ux441ux43eux43dux430ux43bux438ux437ux430ux446ux438ux44f-ux441ux435ux442ux438}
 \end{frame}
 
 \begin{frame}
@@ -441,7 +442,7 @@ TLS определяется и клиентом, и сервером, чтоб�
 \end{frame}
 
 \begin{frame}{2.3 Браузер TOR. Анонимизация}
-\phantomsection\label{ux431ux440ux430ux443ux437ux435ux440-tor.-ux430ux43dux43eux43dux438ux43cux438ux437ux430ux446ux438ux44f}
+\protect\phantomsection\label{ux431ux440ux430ux443ux437ux435ux440-tor.-ux430ux43dux43eux43dux438ux43cux438ux437ux430ux446ux438ux44f}
 \end{frame}
 
 \begin{frame}
@@ -506,7 +507,7 @@ IP-адрес не должен быть известен охранному и 
 \end{frame}
 
 \begin{frame}{2.4 Беспроводные сети Wi-fi}
-\phantomsection\label{ux431ux435ux441ux43fux440ux43eux432ux43eux434ux43dux44bux435-ux441ux435ux442ux438-wi-fi}
+\protect\phantomsection\label{ux431ux435ux441ux43fux440ux43eux432ux43eux434ux43dux44bux435-ux441ux435ux442ux438-wi-fi}
 \end{frame}
 
 \begin{frame}
